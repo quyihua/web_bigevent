@@ -62,7 +62,7 @@ $(function() {
                 // 将身份认证得到的token，存到localStorage里
                 localStorage.setItem('token', res.token);
                 // 页面跳转至后台主页
-                location.href = 'index.html'
+                location.href = '/index.html'
             }
         })
     })
