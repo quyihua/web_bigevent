@@ -30,7 +30,7 @@ function getUserInfo() {
             if (res.status !== 0) {
                 return layui.layer.msg(res.message)
             }
-            console.log(res);
+            // console.log(res);
             renderAvatar(res.data);
         },
         // 请求完成或者失败都会执行complete
@@ -52,11 +52,12 @@ function renderAvatar(user) {
     $('.welcome').html('欢迎&nbsp;&nbsp;' + name)
     if (user.user_pic !== null) {
         // 显示图片头像
-        $('.layui-nav-img').show()
+        $('.layui-nav-img').attr('src', user.user_pic).show()
         $('.text_avatar').hide()
     } else {
         // 显示文字头像
         $('.layui-nav-img').hide()
-        $('.text_avatar').show()
+        var first = name[0].toUpperCase()
+        $('.text_avatar').html(first).show()
     }
 }
